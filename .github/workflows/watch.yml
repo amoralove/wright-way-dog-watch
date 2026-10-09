@@ -2,10 +2,15 @@ name: Watch for new dogs
 on:
   schedule:
     - cron: "*/5 * * * *"   # every 5 minutes
+    - cron: "0 14 * * *"    # daily "still watching" check-in (9 AM Central)
   workflow_dispatch:
     inputs:
       test:
         description: "Send test notification"
+        type: boolean
+        default: false
+      heartbeat:
+        description: "Send the daily still-watching check-in"
         type: boolean
         default: false
 permissions:
@@ -26,6 +31,7 @@ jobs:
       - run: python3 watch.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          HEARTBEAT: ${{ github.event.schedule == '0 14 * * *' || inputs.heartbeat == true }}
       - name: Save seen list
         run: |
           git config user.name "dog-watch-bot"

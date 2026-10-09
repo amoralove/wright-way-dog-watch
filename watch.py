@@ -6,7 +6,7 @@ import os
 import re
 import sys
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 URL = "https://adopt.wright-wayrescue.org/?speciesID=1&stageID=2"
@@ -35,13 +35,13 @@ def fetch():
     return dogs
 
 
-def notify(title, msg, click):
+def notify(title, msg, click, priority="high"):
     """Push to phone via ntfy.sh (topic name in topic.txt)."""
     topic = os.environ.get("NTFY_TOPIC") or (DIR / "topic.txt").read_text().strip()
     req = urllib.request.Request(
         f"https://ntfy.sh/{topic}",
         data=msg.encode("utf-8"),
-        headers={"Title": title, "Tags": "dog", "Click": click, "Priority": "high"},
+        headers={"Title": title, "Tags": "dog", "Click": click, "Priority": priority},
     )
     urllib.request.urlopen(req, timeout=30).read()
 
@@ -81,6 +81,17 @@ def main():
         click = BASE + next(iter(new)) if len(new) == 1 else URL
         notify(title, body, click)
     print(f"{now} {len(dogs)} listed, {len(new)} new")
+
+    if os.environ.get("HEARTBEAT") == "true":
+        cutoff = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
+        lines = LOG.read_text().splitlines() if LOG.exists() else []
+        found = sum(1 for line in lines if line[:16] >= cutoff)
+        notify(
+            "Still watching Wright-Way",
+            f"{len(dogs)} dogs listed. {found} new in the last 24 hours.",
+            URL,
+            priority="low",
+        )
 
 
 if __name__ == "__main__":
