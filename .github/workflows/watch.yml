@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: "17 * * * *"   # hourly
   workflow_dispatch:
+    inputs:
+      test:
+        description: "Send test notification"
+        type: boolean
+        default: false
 permissions:
   contents: write
 jobs:
@@ -10,6 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Send test notification
+        if: ${{ inputs.test }}
+        run: |
+          curl -fsS -H "Title: Test from Wright-Way watcher" -H "Tags: dog" \
+            -d "Phone alerts are working! You'll get one like this when a new dog is posted." \
+            "https://ntfy.sh/$NTFY_TOPIC"
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
       - run: python3 watch.py
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
