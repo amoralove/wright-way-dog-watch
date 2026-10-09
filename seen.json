@@ -531,7 +531,7 @@
  },
  "61878229": {
   "name": "Ivory",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
  },
  "61877997": {
@@ -556,27 +556,72 @@
  },
  "61878209": {
   "name": "Llama",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
  },
  "61878238": {
   "name": "Mako",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
  },
  "61878194": {
   "name": "Matt",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
  },
  "61878048": {
   "name": "Panther",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
  },
  "61878178": {
   "name": "Susan",
-  "age": "2 months",
+  "age": "3 months",
   "breed": "Retriever, Labrador"
+ },
+ "61879672": {
+  "name": "Dena",
+  "age": "5 months",
+  "breed": "Foxhound, American"
+ },
+ "61879536": {
+  "name": "Fowler",
+  "age": "5 months",
+  "breed": "Foxhound, American"
+ },
+ "61879692": {
+  "name": "Java",
+  "age": "5 months",
+  "breed": "Foxhound, American"
+ },
+ "61879727": {
+  "name": "Kada",
+  "age": "3 months",
+  "breed": "Border Collie"
+ },
+ "61879761": {
+  "name": "Kaden",
+  "age": "3 months",
+  "breed": "Border Collie"
+ },
+ "61879775": {
+  "name": "Kane",
+  "age": "3 months",
+  "breed": "Border Collie"
+ },
+ "61879801": {
+  "name": "Kasper",
+  "age": "3 months",
+  "breed": "Border Collie"
+ },
+ "61879649": {
+  "name": "Saphira",
+  "age": "5 months",
+  "breed": "Foxhound, American"
+ },
+ "61879628": {
+  "name": "Sawyer",
+  "age": "5 months",
+  "breed": "Foxhound, American"
  }
 }
