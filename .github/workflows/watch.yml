@@ -15,6 +15,9 @@ on:
         default: false
 permissions:
   contents: write
+concurrency:
+  group: watch
+  cancel-in-progress: false
 jobs:
   check:
     runs-on: ubuntu-latest
