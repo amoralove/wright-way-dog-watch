@@ -36,7 +36,7 @@
  },
  "61848208": {
   "name": "Bayou",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "61870633": {
@@ -91,7 +91,7 @@
  },
  "61848223": {
   "name": "Cajun",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "61873432": {
@@ -146,7 +146,7 @@
  },
  "61848263": {
   "name": "Evangeline",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "60609488": {
@@ -166,7 +166,7 @@
  },
  "61848253": {
   "name": "Fleur",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "61469867": {
@@ -266,7 +266,7 @@
  },
  "61848241": {
   "name": "Jolie",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "61755289": {
@@ -376,7 +376,7 @@
  },
  "61848233": {
   "name": "Roux",
-  "age": "3 months",
+  "age": "4 months",
   "breed": "Catahoula Leopard dog"
  },
  "61869856": {
@@ -653,5 +653,20 @@
   "name": "Aro",
   "age": "10 months",
   "breed": "Boxer"
+ },
+ "61896417": {
+  "name": "Ben",
+  "age": "3 months",
+  "breed": "Retriever, Labrador"
+ },
+ "61896425": {
+  "name": "Daisy",
+  "age": "3 months",
+  "breed": "Retriever, Labrador"
+ },
+ "61896406": {
+  "name": "Peck",
+  "age": "3 months",
+  "breed": "Retriever, Labrador"
  }
 }
