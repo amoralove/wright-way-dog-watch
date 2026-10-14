@@ -708,5 +708,35 @@
   "name": "Nanny",
   "age": "3 months",
   "breed": "Retriever, Labrador"
+ },
+ "61903925": {
+  "name": "Alfalfa",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
+ },
+ "61903955": {
+  "name": "Buckwheat",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
+ },
+ "61903946": {
+  "name": "Darla",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
+ },
+ "61904049": {
+  "name": "Jane",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
+ },
+ "61904059": {
+  "name": "Petey",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
+ },
+ "61904072": {
+  "name": "Spanky",
+  "age": "3 months",
+  "breed": "Australian Shepherd"
  }
 }
