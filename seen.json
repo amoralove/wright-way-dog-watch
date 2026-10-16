@@ -813,5 +813,15 @@
   "name": "George",
   "age": "3 years",
   "breed": "Poodle, Standard"
+ },
+ "61669682": {
+  "name": "Bashful",
+  "age": "2 months",
+  "breed": "Belgian Malinois"
+ },
+ "61828250": {
+  "name": "Frankie",
+  "age": "1 year 3 months",
+  "breed": "Bulldog, English"
  }
 }
