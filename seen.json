@@ -873,5 +873,20 @@
   "name": "Squirt",
   "age": "2 months",
   "breed": "Beagle"
+ },
+ "61952520": {
+  "name": "Sadie",
+  "age": "5 months",
+  "breed": "Terrier, Rat"
+ },
+ "61952572": {
+  "name": "Saylor",
+  "age": "5 months",
+  "breed": "Terrier, Rat"
+ },
+ "61952580": {
+  "name": "Skip",
+  "age": "5 months",
+  "breed": "Terrier, Rat"
  }
 }
