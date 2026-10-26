@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""Watch Wright-Way Rescue's adoptable dogs page and notify on new arrivals."""
+"""Watch rescue shelters' adoptable dogs and notify on new arrivals."""
 import html
 import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
 from pathlib import Path
 
-URL = "https://adopt.wright-wayrescue.org/?speciesID=1&stageID=2"
-BASE = "https://adopt.wright-wayrescue.org/pet.php?animalID="
 DIR = Path(__file__).resolve().parent
 STATE = DIR / "seen.json"
 LOG = DIR / "new_dogs.log"
@@ -21,18 +20,117 @@ PET_RE = re.compile(
 )
 
 
-def fetch():
-    req = urllib.request.Request(URL, headers={"User-Agent": "Mozilla/5.0"})
+def get(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
-        page = r.read().decode("utf-8", "replace")
+        return r.read().decode("utf-8", "replace")
+
+
+def fetch_wright_way(shelter):
+    base = "https://adopt.wright-wayrescue.org/pet.php?animalID="
     dogs = {}
-    for aid, name, age, breed in PET_RE.findall(page):
+    for aid, name, age, breed in PET_RE.findall(get(shelter["page"])):
         dogs[aid] = {
             "name": html.unescape(name).strip(),
             "age": html.unescape(age).strip(),
             "breed": html.unescape(breed).strip(),
+            "url": base + aid,
         }
     return dogs
+
+
+def age_from_months(months):
+    """Turn an age in months into '3 months' / '2 years'."""
+    if months < 12:
+        n, unit = months, "month"
+    else:
+        n, unit = months // 12, "year"
+    return f"{n} {unit}{'s' if n != 1 else ''}"
+
+
+def age_from_birthday(ts):
+    """Turn a Unix-timestamp birthday into '3 months' / '2 years'."""
+    try:
+        days = (datetime.now() - datetime.fromtimestamp(int(ts))).days
+    except (TypeError, ValueError):
+        return ""
+    return age_from_months(max(days * 12 // 365, 0))
+
+
+def fetch_shelterluv(shelter):
+    """Shelters that embed ShelterLuv's adoptable-pets widget (needs the GID)."""
+    url = f"https://www.shelterluv.com/api/v3/available-animals/{shelter['gid']}"
+    dogs = {}
+    for a in json.loads(get(url)).get("animals", []):
+        if a.get("species") != "Dog":
+            continue
+        breed = a.get("breed") or ""
+        if a.get("secondary_breed"):
+            breed = f"{breed} / {a['secondary_breed']}"
+        dogs[a["uniqueId"]] = {
+            "name": (a.get("name") or "").strip(),
+            "age": age_from_birthday(a.get("birthday")),
+            "breed": breed.strip(),
+            "url": a.get("public_url") or shelter["page"],
+        }
+    return dogs
+
+
+ONETAIL_RE = re.compile(
+    r'single-profile" data-name="([^"]*)" data-attributes="([^"]*)">.*?animal_id=(\d+)',
+    re.S,
+)
+STAT_RE = re.compile(
+    r"stats-header'>\s*([^<]*?)\s*</div>\s*<div class='stats-content'>\s*([^<]*?)\s*</div>"
+)
+
+
+def fetch_onetail(shelter):
+    """One Tail's WordPress plugin; the list page has name, type and age in months."""
+    dogs = {}
+    for name, attrs, aid in ONETAIL_RE.findall(get(shelter["page"])):
+        a = json.loads(urllib.parse.unquote(attrs))
+        if a.get("petType") != "Dog":
+            continue
+        dogs[aid] = {
+            "name": html.unescape(name).strip(),
+            "age": age_from_months(int(a["age"])) if a.get("age") is not None else "",
+            "breed": "",
+            "url": f"https://www.onetail.org/animal-details?animal_id={aid}",
+        }
+    return dogs
+
+
+def onetail_details(dog):
+    """Breed (and exact age) are only on each dog's detail page."""
+    stats = dict(STAT_RE.findall(get(dog["url"])))
+    dog["breed"] = html.unescape(stats.get("Breed", ""))
+    dog["age"] = html.unescape(stats.get("Age", "")) or dog["age"]
+
+
+# "key" is used in seen.json; never change it once a shelter has been watched.
+SHELTERS = [
+    {
+        "key": "wright-way",
+        "name": "Wright-Way",
+        "page": "https://adopt.wright-wayrescue.org/?speciesID=1&stageID=2",
+        "fetch": fetch_wright_way,
+    },
+    {
+        "key": "border-tails",
+        "name": "Border Tails",
+        "page": "https://www.bordertailsrescue.org/adoptable-dogs-copy",
+        "gid": 45923,
+        "fetch": fetch_shelterluv,
+    },
+    {
+        "key": "one-tail",
+        "name": "One Tail",
+        "page": "https://www.onetail.org/available-pets/",
+        "fetch": fetch_onetail,
+        "details": onetail_details,
+    },
+]
 
 
 def notify(title, msg, click, priority="high"):
@@ -46,50 +144,72 @@ def notify(title, msg, click, priority="high"):
     urllib.request.urlopen(req, timeout=30).read()
 
 
+def load_state():
+    if not STATE.exists():
+        return {}
+    state = json.loads(STATE.read_text())
+    # Old format was a flat {animalID: dog} map for Wright-Way only.
+    if state and all("name" in v for v in state.values()):
+        state = {"wright-way": state}
+    return state
+
+
 def main():
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
-    try:
-        dogs = fetch()
-    except Exception as e:
-        print(f"{now} fetch failed: {e}", file=sys.stderr)
-        return
-    if not dogs:
-        # Page layout changed or empty response; don't clobber state.
-        print(f"{now} no dogs parsed; skipping", file=sys.stderr)
-        return
+    state = load_state()
+    listed = {}
 
-    first_run = not STATE.exists()
-    seen = {} if first_run else json.loads(STATE.read_text())
-    new = {k: v for k, v in dogs.items() if k not in seen}
+    for shelter in SHELTERS:
+        key, name = shelter["key"], shelter["name"]
+        try:
+            dogs = shelter["fetch"](shelter)
+        except Exception as e:
+            print(f"{now} {name}: fetch failed: {e}", file=sys.stderr)
+            continue
+        if not dogs:
+            # Page layout changed or empty response; don't clobber state.
+            print(f"{now} {name}: no dogs parsed; skipping", file=sys.stderr)
+            continue
+        listed[name] = len(dogs)
 
-    seen.update(dogs)
-    STATE.write_text(json.dumps(seen, indent=1))
+        first_run = key not in state
+        seen = state.setdefault(key, {})
+        new = {k: v for k, v in dogs.items() if k not in seen}
+        if not first_run and "details" in shelter:
+            for d in new.values():
+                try:
+                    shelter["details"](d)
+                except Exception as e:
+                    print(f"{now} {name}: details failed for {d['name']}: {e}", file=sys.stderr)
+        seen.update({k: {f: v[f] for f in ("name", "age", "breed")} for k, v in dogs.items()})
+        STATE.write_text(json.dumps(state, indent=1))
 
-    if first_run:
-        print(f"{now} baseline saved: {len(dogs)} dogs")
-        return
+        if first_run:
+            print(f"{now} {name}: baseline saved: {len(dogs)} dogs")
+            continue
 
-    with LOG.open("a") as f:
-        for aid, d in new.items():
-            f.write(f"{now}\t{d['name']}\t{d['age']}\t{d['breed']}\t{BASE}{aid}\n")
+        with LOG.open("a") as f:
+            for d in new.values():
+                f.write(f"{now}\t{name}\t{d['name']}\t{d['age']}\t{d['breed']}\t{d['url']}\n")
 
-    if new:
-        body = "\n".join(
-            f"{d['name']} - {d['age']}, {d['breed']}" for d in new.values()
-        )
-        title = f"{len(new)} new dog{'s' if len(new) > 1 else ''} at Wright-Way"
-        click = BASE + next(iter(new)) if len(new) == 1 else URL
-        notify(title, body, click)
-    print(f"{now} {len(dogs)} listed, {len(new)} new")
+        if new:
+            body = "\n".join(
+                f"{d['name']} - {d['age']}, {d['breed']}" for d in new.values()
+            )
+            title = f"{len(new)} new dog{'s' if len(new) > 1 else ''} at {name}"
+            click = next(iter(new.values()))["url"] if len(new) == 1 else shelter["page"]
+            notify(title, body, click)
+        print(f"{now} {name}: {len(dogs)} listed, {len(new)} new")
 
     if os.environ.get("HEARTBEAT") == "true":
         cutoff = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
         lines = LOG.read_text().splitlines() if LOG.exists() else []
         found = sum(1 for line in lines if line[:16] >= cutoff)
+        counts = ", ".join(f"{n}: {c}" for n, c in listed.items()) or "no shelters reachable"
         notify(
-            "Still watching Wright-Way",
-            f"{len(dogs)} dogs listed. {found} new in the last 24 hours.",
-            URL,
+            "Still watching",
+            f"Dogs listed - {counts}. {found} new in the last 24 hours.",
+            SHELTERS[0]["page"],
             priority="low",
         )
 
