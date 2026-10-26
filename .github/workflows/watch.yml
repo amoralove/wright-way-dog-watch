@@ -25,7 +25,7 @@ jobs:
       - name: Send test notification
         if: ${{ inputs.test }}
         run: |
-          curl -fsS -H "Title: Test from Wright-Way watcher" -H "Tags: dog" \
+          curl -fsS -H "Title: Test from shelter dog watcher" -H "Tags: dog" \
             -d "Phone alerts are working! You'll get one like this when a new dog is posted." \
             "https://ntfy.sh/$NTFY_TOPIC"
         env:
