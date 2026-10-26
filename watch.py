@@ -39,6 +39,43 @@ def fetch_wright_way(shelter):
     return dogs
 
 
+def page_text(url):
+    """Visible text of a page, whitespace collapsed (for reading fee schedules)."""
+    t = re.sub(r"<script.*?</script>|<style.*?</style>", " ", get(url), flags=re.S)
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", t)).split())
+
+
+def wright_way_fees():
+    """Wright-Way lists fees site-wide, not per dog."""
+    text = page_text("https://wright-wayrescue.org/adoption-program-and-process")
+    fees = {}
+    for label, pat in (("Adult dog", r"Adult Dog:\s*\$(\d+)"), ("Puppy", r"PUPPY:\s*\$(\d+)")):
+        m = re.search(pat, text, re.I)
+        if m:
+            fees[label] = f"${m.group(1)}"
+    m = re.search(r"\$(\d+) for dogs", page_text("https://wright-wayrescue.org/seniors"))
+    if m:
+        fees["Senior adopters"] = f"${m.group(1)}"
+    return fees
+
+
+def wright_way_fee(dog, fees):
+    """Puppy rate is for dogs 9 months and younger."""
+    months = age_in_months(dog["age"])
+    if months is None:
+        return ""
+    return fees.get("Puppy" if months <= 9 else "Adult dog", "")
+
+
+def age_in_months(age):
+    """'3 weeks' / '5 months' / '1 year, 9 months' -> months, or None."""
+    parts = re.findall(r"(\d+)\s*(week|month|year)", age, re.I)
+    if not parts:
+        return None
+    per = {"week": 0.25, "month": 1, "year": 12}
+    return sum(int(n) * per[u.lower()] for n, u in parts)
+
+
 def age_from_months(months):
     """Turn an age in months into '3 months' / '2 years'."""
     if months < 12:
@@ -74,6 +111,13 @@ def fetch_shelterluv(shelter):
             "url": a.get("public_url") or shelter["page"],
         }
     return dogs
+
+
+def shelterluv_details(dog):
+    """The adoption fee is only on each animal's ShelterLuv page."""
+    m = re.search(r'"adoptionFee":"([^"]*)"', html.unescape(get(dog["url"])))
+    if m and m.group(1):
+        dog["fee"] = m.group(1).replace(".00", "")
 
 
 ONETAIL_RE = re.compile(
@@ -115,6 +159,9 @@ SHELTERS = [
         "name": "Wright-Way",
         "page": "https://adopt.wright-wayrescue.org/?speciesID=1&stageID=2",
         "fetch": fetch_wright_way,
+        "fees": wright_way_fees,
+        "fee_for": wright_way_fee,
+        "fees_page": "https://wright-wayrescue.org/adoption-program-and-process",
     },
     {
         "key": "border-tails",
@@ -122,6 +169,7 @@ SHELTERS = [
         "page": "https://www.bordertailsrescue.org/adoptable-dogs-copy",
         "gid": 45923,
         "fetch": fetch_shelterluv,
+        "details": shelterluv_details,
     },
     {
         "key": "one-tail",
@@ -154,6 +202,35 @@ def load_state():
     return state
 
 
+def check_fees(shelter, state, now):
+    """Read a shelter's fee schedule and alert when it changes (e.g. a fee special)."""
+    key, name = shelter["key"], shelter["name"]
+    try:
+        fees = shelter["fees"]()
+    except Exception as e:
+        print(f"{now} {name}: fee check failed: {e}", file=sys.stderr)
+        return {}
+    if not fees:
+        # Page layout changed; keep the last known schedule.
+        print(f"{now} {name}: no fees parsed; skipping", file=sys.stderr)
+        return {}
+
+    known = state.setdefault("fees", {})
+    old = known.get(key)
+    known[key] = fees
+    STATE.write_text(json.dumps(state, indent=1))
+
+    if old is not None and old != fees:
+        changes = [
+            f"{label}: {old.get(label, 'none')} -> {fees.get(label, 'none')}"
+            for label in sorted(set(old) | set(fees))
+            if old.get(label) != fees.get(label)
+        ]
+        notify(f"{name} adoption fees changed", "\n".join(changes), shelter["fees_page"])
+        print(f"{now} {name}: fees changed: {'; '.join(changes)}")
+    return fees
+
+
 def main():
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
     state = load_state()
@@ -161,6 +238,7 @@ def main():
 
     for shelter in SHELTERS:
         key, name = shelter["key"], shelter["name"]
+        fees = check_fees(shelter, state, now) if "fees" in shelter else {}
         try:
             dogs = shelter["fetch"](shelter)
         except Exception as e:
@@ -181,6 +259,8 @@ def main():
                     shelter["details"](d)
                 except Exception as e:
                     print(f"{now} {name}: details failed for {d['name']}: {e}", file=sys.stderr)
+        for d in new.values():
+            d.setdefault("fee", shelter["fee_for"](d, fees) if "fee_for" in shelter else "")
         seen.update({k: {f: v[f] for f in ("name", "age", "breed")} for k, v in dogs.items()})
         STATE.write_text(json.dumps(state, indent=1))
 
@@ -194,7 +274,9 @@ def main():
 
         if new:
             body = "\n".join(
-                f"{d['name']} - {d['age']}, {d['breed']}" for d in new.values()
+                f"{d['name']} - {d['age']}, {d['breed']}"
+                + (f" - {d['fee']} fee" if d["fee"] else "")
+                for d in new.values()
             )
             title = f"{len(new)} new dog{'s' if len(new) > 1 else ''} at {name}"
             click = next(iter(new.values()))["url"] if len(new) == 1 else shelter["page"]

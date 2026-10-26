@@ -4,6 +4,11 @@ The checks are triggered by a cron-job.org job that calls the workflow's `workfl
 A daily "still watching" check-in is sent at 9 AM Central (GitHub's own schedule).
 New dogs are logged in `new_dogs.log`.
 
+## Fees
+Where a shelter's fee schedule can be read, new-dog alerts include the fee, and a separate alert is sent when the schedule changes (e.g. a fee special). The last known schedule is kept under `fees` in `seen.json`.
+- Wright-Way: site-wide rates from https://wright-wayrescue.org/adoption-program-and-process (adult dog vs. puppy 9 months and younger) and the senior-adopter rate from https://wright-wayrescue.org/seniors.
+- Border Tails: per-dog fee from each new dog's ShelterLuv entry (no schedule-change alert, since there is no site-wide schedule).
+
 ## Shelters
 - Wright-Way: https://adopt.wright-wayrescue.org/?speciesID=1&stageID=2
 - Border Tails: https://www.bordertailsrescue.org/adoptable-dogs-copy (ShelterLuv)
