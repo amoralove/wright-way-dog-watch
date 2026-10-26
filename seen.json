@@ -2559,5 +2559,12 @@
    "age": "4 years",
    "breed": ""
   }
+ },
+ "fees": {
+  "wright-way": {
+   "Adult dog": "$345",
+   "Puppy": "$545",
+   "Senior adopters": "$75"
+  }
  }
 }
