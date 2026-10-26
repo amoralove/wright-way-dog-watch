@@ -243,10 +243,12 @@ def main():
             dogs = shelter["fetch"](shelter)
         except Exception as e:
             print(f"{now} {name}: fetch failed: {e}", file=sys.stderr)
+            listed[name] = f"site down ({getattr(e, 'code', None) or type(e).__name__})"
             continue
         if not dogs:
             # Page layout changed or empty response; don't clobber state.
             print(f"{now} {name}: no dogs parsed; skipping", file=sys.stderr)
+            listed[name] = "no dogs found on page"
             continue
         listed[name] = len(dogs)
 
@@ -287,7 +289,7 @@ def main():
         cutoff = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d %H:%M")
         lines = LOG.read_text().splitlines() if LOG.exists() else []
         found = sum(1 for line in lines if line[:16] >= cutoff)
-        counts = ", ".join(f"{n}: {c}" for n, c in listed.items()) or "no shelters reachable"
+        counts = ", ".join(f"{n}: {c}" for n, c in listed.items())
         notify(
             "Still watching",
             f"Dogs listed - {counts}. {found} new in the last 24 hours.",
