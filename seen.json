@@ -198,7 +198,7 @@
   "61828880": {
    "name": "Ghost",
    "age": "8 months",
-   "breed": "Siberian Husky"
+   "breed": "Australian Shepherd"
   },
   "61869895": {
    "name": "Goose",
@@ -1184,6 +1184,31 @@
    "name": "Gerdie",
    "age": "5 years",
    "breed": "Pug"
+  },
+  "61972303": {
+   "name": "Oakley",
+   "age": "4 months",
+   "breed": "Australian Shepherd"
+  },
+  "61972209": {
+   "name": "Olivia",
+   "age": "4 months",
+   "breed": "Australian Shepherd"
+  },
+  "61972285": {
+   "name": "Ophelia",
+   "age": "4 months",
+   "breed": "Australian Shepherd"
+  },
+  "61972312": {
+   "name": "Orion",
+   "age": "4 months",
+   "breed": "Australian Shepherd"
+  },
+  "61972296": {
+   "name": "Owen",
+   "age": "4 months",
+   "breed": "Australian Shepherd"
   }
  },
  "border-tails": {
