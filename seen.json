@@ -1249,6 +1249,21 @@
    "name": "Scarecrow",
    "age": "2 months",
    "breed": "Retriever, Golden"
+  },
+  "57877129": {
+   "name": "Bruce",
+   "age": "1 year 10 months",
+   "breed": "Australian Shepherd"
+  },
+  "61098314": {
+   "name": "Dallas",
+   "age": "6 months",
+   "breed": "Australian Cattle Dog"
+  },
+  "61990808": {
+   "name": "Isabelle",
+   "age": "3 years",
+   "breed": "Terrier, American Staffordshire"
   }
  },
  "border-tails": {
