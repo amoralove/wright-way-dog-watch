@@ -1279,6 +1279,26 @@
    "name": "Snowy",
    "age": "2 years 6 months",
    "breed": "Chihuahua, Short Coat"
+  },
+  "61997094": {
+   "name": "Amren",
+   "age": "2 months",
+   "breed": "Chihuahua, Short Coat"
+  },
+  "61997062": {
+   "name": "Magnolia",
+   "age": "8 months",
+   "breed": "Great Pyrenees"
+  },
+  "61997150": {
+   "name": "Oak",
+   "age": "2 years",
+   "breed": "Poodle, Standard"
+  },
+  "61997229": {
+   "name": "Sparky",
+   "age": "1 year",
+   "breed": "Australian Shepherd, Miniature"
   }
  },
  "border-tails": {
