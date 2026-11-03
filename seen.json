@@ -2564,7 +2564,7 @@
   },
   "BTIL-A-29845": {
    "name": "Carnation",
-   "age": "0 months",
+   "age": "2 years",
    "breed": "Poodle, Miniature"
   },
   "BTIL-A-29848": {
@@ -2586,6 +2586,36 @@
    "name": "Jersey Mikes",
    "age": "0 months",
    "breed": "Shih Tzu"
+  },
+  "BTIL-A-29840": {
+   "name": "Orchid",
+   "age": "4 months",
+   "breed": "Terrier, Pit Bull"
+  },
+  "BTIL-A-29843": {
+   "name": "Marvolo",
+   "age": "3 years",
+   "breed": "Poodle, Miniature"
+  },
+  "BTIL-A-29844": {
+   "name": "Poinsettia",
+   "age": "10 years",
+   "breed": "Pomeranian"
+  },
+  "BTIL-A-29846": {
+   "name": "Wisconsin",
+   "age": "4 years",
+   "breed": "Shiba Inu"
+  },
+  "BTIL-A-29847": {
+   "name": "Al's Big Beef Boy",
+   "age": "12 years",
+   "breed": "Chihuahua"
+  },
+  "BTIL-A-29851": {
+   "name": "Myloni",
+   "age": "2 years",
+   "breed": "Terrier, Pit Bull"
   }
  },
  "one-tail": {
