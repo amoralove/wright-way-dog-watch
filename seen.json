@@ -1344,6 +1344,31 @@
    "name": "Sam",
    "age": "3 months",
    "breed": "Retriever, Golden"
+  },
+  "62027857": {
+   "name": "Graham",
+   "age": "3 months",
+   "breed": "Great Pyrenees"
+  },
+  "62027911": {
+   "name": "Randy",
+   "age": "6 months",
+   "breed": "Retriever, Golden"
+  },
+  "62027879": {
+   "name": "Rusty",
+   "age": "6 months",
+   "breed": "Retriever, Golden"
+  },
+  "62027824": {
+   "name": "Smores",
+   "age": "3 months",
+   "breed": "Great Pyrenees"
+  },
+  "62027931": {
+   "name": "Tipp",
+   "age": "6 months",
+   "breed": "Poodle, Miniature"
   }
  },
  "border-tails": {
