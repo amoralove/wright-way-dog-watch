@@ -1369,6 +1369,26 @@
    "name": "Tipp",
    "age": "6 months",
    "breed": "Poodle, Miniature"
+  },
+  "62028018": {
+   "name": "Bonnie",
+   "age": "3 years",
+   "breed": "Australian Shepherd"
+  },
+  "62028061": {
+   "name": "Brownie",
+   "age": "2 months",
+   "breed": "Australian Shepherd"
+  },
+  "62028086": {
+   "name": "Harry",
+   "age": "2 months",
+   "breed": "Australian Shepherd"
+  },
+  "62028083": {
+   "name": "Quiz",
+   "age": "2 months",
+   "breed": "Australian Shepherd"
   }
  },
  "border-tails": {
