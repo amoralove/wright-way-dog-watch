@@ -1464,6 +1464,11 @@
    "name": "Merida",
    "age": "1 year",
    "breed": "Terrier, Yorkshire"
+  },
+  "61630548": {
+   "name": "Gizmo",
+   "age": "1 year 2 months",
+   "breed": "Terrier, Rat"
   }
  },
  "border-tails": {
@@ -3106,8 +3111,8 @@
   },
   "213121989": {
    "name": "Rosalee",
-   "age": "3 years, 8 months",
-   "breed": "Mixed Breed (Medium)"
+   "age": "3 years",
+   "breed": ""
   }
  },
  "fees": {
