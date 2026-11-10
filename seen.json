@@ -1499,6 +1499,31 @@
    "name": "Cruella",
    "age": "4 years",
    "breed": "Terrier, Jack Russell"
+  },
+  "62058098": {
+   "name": "Fry",
+   "age": "2 months",
+   "breed": "Siberian Husky"
+  },
+  "62057750": {
+   "name": "Martinez",
+   "age": "4 years",
+   "breed": "Shih Tzu"
+  },
+  "62057925": {
+   "name": "Max",
+   "age": "1 months",
+   "breed": "Shih Tzu"
+  },
+  "62058028": {
+   "name": "Miles",
+   "age": "1 months",
+   "breed": "Shih Tzu"
+  },
+  "62058146": {
+   "name": "Nugget",
+   "age": "2 months",
+   "breed": "Siberian Husky"
   }
  },
  "border-tails": {
