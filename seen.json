@@ -1479,6 +1479,26 @@
    "name": "Abby",
    "age": "7 months",
    "breed": "Australian Shepherd"
+  },
+  "62057281": {
+   "name": "Catalina",
+   "age": "1 months",
+   "breed": "Terrier, Jack Russell"
+  },
+  "62057273": {
+   "name": "Clara",
+   "age": "1 months",
+   "breed": "Terrier, Jack Russell"
+  },
+  "62057233": {
+   "name": "Cooper",
+   "age": "1 months",
+   "breed": "Terrier, Jack Russell"
+  },
+  "62057158": {
+   "name": "Cruella",
+   "age": "4 years",
+   "breed": "Terrier, Jack Russell"
   }
  },
  "border-tails": {
