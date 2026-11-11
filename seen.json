@@ -1549,6 +1549,26 @@
    "name": "Tina",
    "age": "3 months",
    "breed": "Great Pyrenees"
+  },
+  "62060943": {
+   "name": "Croc",
+   "age": "4 months",
+   "breed": "Border Collie"
+  },
+  "62060956": {
+   "name": "Harvey",
+   "age": "4 months",
+   "breed": "Border Collie"
+  },
+  "62060955": {
+   "name": "Penguin",
+   "age": "4 months",
+   "breed": "Border Collie"
+  },
+  "62060965": {
+   "name": "Riddler",
+   "age": "4 months",
+   "breed": "Border Collie"
   }
  },
  "border-tails": {
