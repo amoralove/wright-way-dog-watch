@@ -1569,6 +1569,71 @@
    "name": "Riddler",
    "age": "4 months",
    "breed": "Border Collie"
+  },
+  "62061046": {
+   "name": "Beetle",
+   "age": "1 months",
+   "breed": "Spaniel, Clumber"
+  },
+  "62061004": {
+   "name": "Bell",
+   "age": "2 years 1 months",
+   "breed": "Retriever, Labrador"
+  },
+  "62061102": {
+   "name": "Brandy Snap",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061057": {
+   "name": "Butterfly",
+   "age": "1 months",
+   "breed": "Spaniel, Clumber"
+  },
+  "62061060": {
+   "name": "Caterpillar",
+   "age": "1 months",
+   "breed": "Spaniel, Clumber"
+  },
+  "62061078": {
+   "name": "Chelsea",
+   "age": "4 years",
+   "breed": "Miniature Pinscher"
+  },
+  "62061120": {
+   "name": "Jaffa",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061113": {
+   "name": "Jammy",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061105": {
+   "name": "Plum Pudding",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061124": {
+   "name": "Roly Poly",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061108": {
+   "name": "Sticky Toffee",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62061095": {
+   "name": "Yum Yum",
+   "age": "2 months",
+   "breed": "Miniature Pinscher"
+  },
+  "62060983": {
+   "name": "Zenitsu",
+   "age": "11 months",
+   "breed": "Great Pyrenees"
   }
  },
  "border-tails": {
