@@ -1529,6 +1529,26 @@
    "name": "Sandman",
    "age": "2 years 8 months",
    "breed": "German Shepherd"
+  },
+  "62060825": {
+   "name": "Coke",
+   "age": "8 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62060842": {
+   "name": "Pibb",
+   "age": "8 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62060861": {
+   "name": "Stefan",
+   "age": "7 years 1 months",
+   "breed": "Terrier, Rat"
+  },
+  "62060875": {
+   "name": "Tina",
+   "age": "3 months",
+   "breed": "Great Pyrenees"
   }
  },
  "border-tails": {
