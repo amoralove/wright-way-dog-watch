@@ -1724,6 +1724,21 @@
    "name": "Rowdy",
    "age": "2 years",
    "breed": "Border Collie"
+  },
+  "62067333": {
+   "name": "Baby",
+   "age": "2 years",
+   "breed": "Poodle, Standard"
+  },
+  "62067358": {
+   "name": "Chance",
+   "age": "2 months",
+   "breed": "Retriever, Labrador"
+  },
+  "62067524": {
+   "name": "Sophie",
+   "age": "1 year 6 months",
+   "breed": "Chihuahua, Short Coat"
   }
  },
  "border-tails": {
