@@ -1744,6 +1744,16 @@
    "name": "Frankie",
    "age": "4 years",
    "breed": "Schnauzer, Miniature"
+  },
+  "62068346": {
+   "name": "Annabelle",
+   "age": "2 months",
+   "breed": "Australian Shepherd"
+  },
+  "62068046": {
+   "name": "Dobby",
+   "age": "5 months",
+   "breed": "Chihuahua, Short Coat"
   }
  },
  "border-tails": {
