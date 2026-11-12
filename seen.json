@@ -1764,6 +1764,31 @@
    "name": "Smokey",
    "age": "1 months",
    "breed": "Collie, Smooth"
+  },
+  "62068913": {
+   "name": "Dolly",
+   "age": "1 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62068836": {
+   "name": "Hank",
+   "age": "1 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62068980": {
+   "name": "Patsy",
+   "age": "1 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62068783": {
+   "name": "Waylon",
+   "age": "1 months",
+   "breed": "Anatolian Shepherd"
+  },
+  "62068855": {
+   "name": "Willie",
+   "age": "1 months",
+   "breed": "Anatolian Shepherd"
   }
  },
  "border-tails": {
@@ -3211,6 +3236,11 @@
    "name": "Polly Pocket",
    "age": "4 years",
    "breed": "Shih Tzu / Mix"
+  },
+  "BTIL-A-29336": {
+   "name": "Meatwad Miller",
+   "age": "2 years",
+   "breed": "Terrier"
   }
  },
  "one-tail": {
