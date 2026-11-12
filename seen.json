@@ -1483,7 +1483,7 @@
   "62057281": {
    "name": "Catalina",
    "age": "1 months",
-   "breed": "Terrier, Jack Russell"
+   "breed": "Spaniel"
   },
   "62057273": {
    "name": "Clara",
@@ -1493,37 +1493,37 @@
   "62057233": {
    "name": "Cooper",
    "age": "1 months",
-   "breed": "Terrier, Jack Russell"
+   "breed": "Spaniel"
   },
   "62057158": {
    "name": "Cruella",
    "age": "4 years",
-   "breed": "Terrier, Jack Russell"
+   "breed": "Shiba Inu"
   },
   "62058098": {
    "name": "Fry",
    "age": "2 months",
-   "breed": "Siberian Husky"
+   "breed": "Shiba Inu"
   },
   "62057750": {
    "name": "Martinez",
    "age": "4 years",
-   "breed": "Shih Tzu"
+   "breed": "Lhasa Apso"
   },
   "62057925": {
    "name": "Max",
    "age": "1 months",
-   "breed": "Shih Tzu"
+   "breed": "Lhasa Apso"
   },
   "62058028": {
    "name": "Miles",
    "age": "1 months",
-   "breed": "Shih Tzu"
+   "breed": "Lhasa Apso"
   },
   "62058146": {
    "name": "Nugget",
    "age": "2 months",
-   "breed": "Siberian Husky"
+   "breed": "Shiba Inu"
   },
   "62058419": {
    "name": "Sandman",
@@ -1633,7 +1633,7 @@
   "62060983": {
    "name": "Zenitsu",
    "age": "11 months",
-   "breed": "Great Pyrenees"
+   "breed": "Retriever, Golden"
   },
   "62061139": {
    "name": "Barley",
@@ -3558,6 +3558,11 @@
    "name": "Delilah",
    "age": "3 years",
    "breed": ""
+  },
+  "214848226": {
+   "name": "Griffin",
+   "age": "1 year, 1 month",
+   "breed": "Terrier, Wire Fox/Mix"
   }
  },
  "fees": {
