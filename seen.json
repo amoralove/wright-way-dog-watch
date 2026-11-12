@@ -1754,6 +1754,16 @@
    "name": "Dobby",
    "age": "5 months",
    "breed": "Chihuahua, Short Coat"
+  },
+  "62068530": {
+   "name": "Bandit",
+   "age": "1 months",
+   "breed": "Collie, Smooth"
+  },
+  "62068480": {
+   "name": "Smokey",
+   "age": "1 months",
+   "breed": "Collie, Smooth"
   }
  },
  "border-tails": {
@@ -3598,6 +3608,11 @@
    "name": "Griffin",
    "age": "1 year",
    "breed": ""
+  },
+  "214843372": {
+   "name": "Nash",
+   "age": "1 year, 7 months",
+   "breed": "Mastiff, Bullmastiff/Mix"
   }
  },
  "fees": {
