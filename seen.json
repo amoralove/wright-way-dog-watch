@@ -1849,6 +1849,31 @@
    "name": "Stitch",
    "age": "3 months",
    "breed": "Catahoula Leopard dog"
+  },
+  "62071545": {
+   "name": "Autumn",
+   "age": "4 months",
+   "breed": "Terrier"
+  },
+  "62071548": {
+   "name": "Glitch",
+   "age": "2 months",
+   "breed": "Pointer"
+  },
+  "62071551": {
+   "name": "Ike",
+   "age": "1 months",
+   "breed": "Retriever, Labrador"
+  },
+  "62071550": {
+   "name": "Iris",
+   "age": "1 months",
+   "breed": "Retriever, Labrador"
+  },
+  "62071542": {
+   "name": "Lily",
+   "age": "1 months",
+   "breed": "Cur, Mountain"
   }
  },
  "border-tails": {
