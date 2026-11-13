@@ -1924,6 +1924,41 @@
    "name": "Truffle",
    "age": "2 months",
    "breed": "Australian Kelpie"
+  },
+  "62072598": {
+   "name": "Bear",
+   "age": "7 months",
+   "breed": "Finnish Spitz"
+  },
+  "62072563": {
+   "name": "Chippy",
+   "age": "1 months",
+   "breed": "Beagle"
+  },
+  "62072508": {
+   "name": "Coco",
+   "age": "3 years",
+   "breed": "Beagle"
+  },
+  "62072561": {
+   "name": "Emerald",
+   "age": "1 months",
+   "breed": "Beagle"
+  },
+  "62072566": {
+   "name": "Emmy",
+   "age": "1 months",
+   "breed": "Beagle"
+  },
+  "62072637": {
+   "name": "Lacey",
+   "age": "7 months",
+   "breed": "Spaniel"
+  },
+  "62072550": {
+   "name": "Lida",
+   "age": "1 months",
+   "breed": "Beagle"
   }
  },
  "border-tails": {
