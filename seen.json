@@ -2395,7 +2395,7 @@
   "BTIL-A-29373": {
    "name": "Sonny",
    "age": "1 year",
-   "breed": "Boxer"
+   "breed": "Terrier, American Pit Bull / Retriever, Labrador"
   },
   "BTIL-A-29374": {
    "name": "Ricky",
@@ -3466,6 +3466,11 @@
    "name": "Root",
    "age": "8 years",
    "breed": "Pomeranian / Husky"
+  },
+  "BTIL-A-29903": {
+   "name": "Nelly",
+   "age": "3 months",
+   "breed": "Shih Tzu"
   }
  },
  "one-tail": {
