@@ -3340,7 +3340,7 @@
   "BTIL-A-29813": {
    "name": "Cutest Patootest",
    "age": "4 months",
-   "breed": "Retriever, Golden / Mix"
+   "breed": "Retriever, Golden / Retriever, Yellow Labrador"
   },
   "BTIL-A-29861": {
    "name": "Gorda",
@@ -3561,6 +3561,26 @@
    "name": "Sae-i",
    "age": "4 years",
    "breed": "Korean Jindo"
+  },
+  "BTIL-A-29859": {
+   "name": "Comang",
+   "age": "2 years",
+   "breed": "Mastiff"
+  },
+  "BTIL-A-29913": {
+   "name": "Violet",
+   "age": "0 months",
+   "breed": "Terrier, Pit Bull"
+  },
+  "BTIL-A-29914": {
+   "name": "Gremlin",
+   "age": "2 years",
+   "breed": "Terrier, Pit Bull"
+  },
+  "BTIL-A-29915": {
+   "name": "Achoo",
+   "age": "3 months",
+   "breed": "Terrier, Pit Bull"
   }
  },
  "one-tail": {
