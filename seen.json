@@ -3259,7 +3259,7 @@
   },
   "BTIL-A-29842": {
    "name": "Cedric",
-   "age": "0 months",
+   "age": "10 years",
    "breed": "Poodle, Miniature"
   },
   "BTIL-A-29845": {
@@ -3596,6 +3596,11 @@
    "name": "Mildred",
    "age": "3 months",
    "breed": "Terrier, Boston"
+  },
+  "BTIL-A-29916": {
+   "name": "Bless You",
+   "age": "0 months",
+   "breed": "Terrier, Pit Bull"
   }
  },
  "one-tail": {
@@ -4041,8 +4046,13 @@
   },
   "215021509": {
    "name": "Willow",
-   "age": "3 years, 1 month",
-   "breed": "Sheep Dog/Mix"
+   "age": "3 years",
+   "breed": ""
+  },
+  "214941528": {
+   "name": "Joey",
+   "age": "2 months",
+   "breed": "Mixed Breed (Small)"
   }
  },
  "fees": {
