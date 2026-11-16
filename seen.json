@@ -3394,7 +3394,7 @@
   },
   "BTIL-A-29886": {
    "name": "Furby",
-   "age": "0 months",
+   "age": "2 years",
    "breed": "Mixed Breed (Small)"
   },
   "BTIL-A-29893": {
@@ -3454,7 +3454,7 @@
   },
   "BTIL-A-29880": {
    "name": "Betty Spaghetty",
-   "age": "0 months",
+   "age": "5 years",
    "breed": "Mixed Breed (Small)"
   },
   "BTIL-A-29901": {
@@ -3486,6 +3486,11 @@
    "name": "Mariah",
    "age": "4 months",
    "breed": "Great Dane"
+  },
+  "BTIL-A-29907": {
+   "name": "Bertha",
+   "age": "3 months",
+   "breed": "Bulldog, English"
   }
  },
  "one-tail": {
