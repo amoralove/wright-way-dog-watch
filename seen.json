@@ -3729,7 +3729,7 @@
   },
   "BTIL-A-29560": {
    "name": "Rachet",
-   "age": "3 months",
+   "age": "4 months",
    "breed": "Terrier, Pit Bull"
   },
   "BTIL-A-29891": {
@@ -3790,6 +3790,21 @@
   "BTIL-A-29936": {
    "name": "Daisy",
    "age": "12 years",
+   "breed": "Chihuahua"
+  },
+  "BTIL-A-29927": {
+   "name": "Derf",
+   "age": "4 years",
+   "breed": "Chihuahua"
+  },
+  "BTIL-A-29928": {
+   "name": "Bernard",
+   "age": "8 months",
+   "breed": "Terrier, Bull"
+  },
+  "BTIL-A-29929": {
+   "name": "Manchita",
+   "age": "5 years",
    "breed": "Chihuahua"
   }
  },
