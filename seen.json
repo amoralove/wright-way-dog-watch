@@ -2194,6 +2194,36 @@
    "name": "Tito",
    "age": "3 years",
    "breed": "Schnauzer, Miniature"
+  },
+  "62123684": {
+   "name": "Ace",
+   "age": "5 years",
+   "breed": "Maltese"
+  },
+  "62123503": {
+   "name": "Honey",
+   "age": "3 years",
+   "breed": "Poodle, Miniature"
+  },
+  "62123554": {
+   "name": "Maple",
+   "age": "6 months",
+   "breed": "Poodle, Miniature"
+  },
+  "62123603": {
+   "name": "Millie",
+   "age": "2 months",
+   "breed": "Australian Kelpie"
+  },
+  "62123533": {
+   "name": "Sorgum",
+   "age": "6 months",
+   "breed": "Poodle, Miniature"
+  },
+  "62123549": {
+   "name": "Sugar",
+   "age": "6 months",
+   "breed": "Poodle, Miniature"
   }
  },
  "border-tails": {
