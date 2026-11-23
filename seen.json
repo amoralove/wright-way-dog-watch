@@ -3931,6 +3931,21 @@
    "name": "Bella The One Thousandth",
    "age": "1 year",
    "breed": "Chihuahua"
+  },
+  "BTIL-A-29931": {
+   "name": "Tracks",
+   "age": "8 years",
+   "breed": "Terrier, Pit Bull"
+  },
+  "BTIL-A-29940": {
+   "name": "Diamond",
+   "age": "10 years",
+   "breed": "Terrier, American Pit Bull / Mixed Breed (Large)"
+  },
+  "BTIL-A-29966": {
+   "name": "Banana Nut Crunch",
+   "age": "3 months",
+   "breed": "Shepherd, Australian"
   }
  },
  "one-tail": {
@@ -4446,8 +4461,8 @@
   },
   "214989317": {
    "name": "Balu",
-   "age": "3 years, 1 month",
-   "breed": "Chihuahua"
+   "age": "3 years",
+   "breed": ""
   }
  },
  "fees": {
