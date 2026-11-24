@@ -57,7 +57,7 @@
   },
   "61822570": {
    "name": "Bernie",
-   "age": "4 months",
+   "age": "5 months",
    "breed": "Australian Cattle Dog"
   },
   "61699940": {
@@ -1407,17 +1407,17 @@
   },
   "62028628": {
    "name": "Hershey Kiss",
-   "age": "2 months",
+   "age": "3 months",
    "breed": "German Shepherd"
   },
   "62028655": {
    "name": "Houdini",
-   "age": "2 months",
+   "age": "3 months",
    "breed": "German Shepherd"
   },
   "62028530": {
    "name": "Jaxon",
-   "age": "6 months",
+   "age": "7 months",
    "breed": "Australian Cattle Dog"
   },
   "62028509": {
@@ -1427,7 +1427,7 @@
   },
   "62028643": {
    "name": "Little Bit",
-   "age": "2 months",
+   "age": "3 months",
    "breed": "German Shepherd"
   },
   "62028461": {
@@ -1442,7 +1442,7 @@
   },
   "62028577": {
    "name": "Snickers",
-   "age": "2 months",
+   "age": "3 months",
    "breed": "German Shepherd"
   },
   "62028615": {
@@ -3951,6 +3951,21 @@
    "name": "Scruffmaster 3000",
    "age": "11 years",
    "breed": "Terrier"
+  },
+  "BTIL-A-29956": {
+   "name": "Oreo-O",
+   "age": "2 months",
+   "breed": "Bulldog, Victorian"
+  },
+  "BTIL-A-29970": {
+   "name": "Bran",
+   "age": "4 months",
+   "breed": "Shepherd, Australian"
+  },
+  "BTIL-A-29973": {
+   "name": "Clackers",
+   "age": "2 months",
+   "breed": "Shiba Inu"
   }
  },
  "one-tail": {
