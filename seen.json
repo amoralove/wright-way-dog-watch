@@ -4661,18 +4661,23 @@
   },
   "215021504": {
    "name": "Gidget",
-   "age": "3 years, 7 months",
-   "breed": "Mixed Breed (Small)"
+   "age": "3 years",
+   "breed": ""
   },
   "215021508": {
    "name": "Chloe",
-   "age": "1 year, 1 month",
-   "breed": "Mixed Breed (Small)"
+   "age": "1 year",
+   "breed": ""
   },
   "215012199": {
    "name": "Tovi",
    "age": "9 months",
-   "breed": "Maltese/Poodle"
+   "breed": ""
+  },
+  "215093442": {
+   "name": "Albert",
+   "age": "2 years",
+   "breed": "Terrier, Cairn"
   }
  },
  "fees": {
