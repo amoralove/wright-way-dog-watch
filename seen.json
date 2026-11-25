@@ -4106,6 +4106,11 @@
    "name": "Chia Pet",
    "age": "0 months",
    "breed": "Terrier, Yorkshire, Yorkie / Mix"
+  },
+  "BTIL-A-29978": {
+   "name": "Muffet",
+   "age": "2 months",
+   "breed": "Poodle"
   }
  },
  "one-tail": {
@@ -4636,8 +4641,8 @@
   },
   "214954038": {
    "name": "Tito",
-   "age": "2 years, 1 month",
-   "breed": "Chihuahua/Mixed Breed (Small)"
+   "age": "2 years",
+   "breed": ""
   }
  },
  "fees": {
